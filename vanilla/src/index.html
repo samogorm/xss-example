@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>XSS Vulnerable Webpage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <header>
+     <h1>XSS with Vanilla JS</h1>
+    </header>
+    <div class="comments">
+      <h2>Comments</h2>
+      <div class="comments__list"></div>
+      <button type="button" class="form__button modal__toggle">
+        Add comment
+      </button>
+    </div>
+    <div class="modal modal--closed">
+      <div class="modal__content">
+        <div class="modal__body">
+          <button class="modal__close">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <div class="form__title">
+            <h3>Add Comment</h3>
+            <p>Post a comment by using the form below.</p>
+          </div>
+          <form class="form">
+            <div class="form__fields">
+              <div class="form-input__group">
+                <label for="name" class="form-input__label">Name</label>
+                <input id="name" type="text" name="name" class="form-input__field"/>
+              </div>
+              <div class="form-input__group">
+                <label for="subject" class="form-input__label">Subject</label>
+                <input id="subject" type="text" name="subject" class="form-input__field"/>
+              </div>
+              <div class="form-input__group">
+                <label for="comment" class="form-input__label">Comment</label>
+                <textarea id="comment" type="text" name="comment" class="form-input__field"></textarea>
+              </div>
+            </div>
+            <div class="form__button-wrapper">
+              <button type="button" class="form__button post-comment">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js" type="text/javascript"></script>
+  </body>
+</html>
