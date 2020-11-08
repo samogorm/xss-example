@@ -10,11 +10,13 @@
      <h1>XSS with Vanilla JS</h1>
     </header>
     <div class="comments">
-      <h2>Comments</h2>
+      <div class="comments__title">
+        <h2>Comments</h2>
+        <button type="button" class="form__button modal__toggle add-comment">
+          Add comment
+        </button>
+      </div>
       <div class="comments__list"></div>
-      <button type="button" class="form__button modal__toggle">
-        Add comment
-      </button>
     </div>
     <div class="modal modal--closed">
       <div class="modal__content">
