@@ -50,14 +50,14 @@ The data for the website then gets loaded on the page along with the malicious c
 - Avoid using javascript urls
 - Keep all external sources up to date, run regular security audits to ensure the packages are secure (i.e npm, yarn)
 
-## How Modern Frameworks Prevent XSS
+## Modern Libraries/Frameworks
 
-A lot of modern frameworks escape data safely before rendering it on a webpage, they can also escape url parameters and prevent external JavaScript being executed on the webpage.
+A lot of modern libraries and frameworks escape data safely before rendering it on a webpage, they can also sanitise URLs and prevent external JavaScript being executed on the webpage.
 
 ### React
 
 #### Data Binding
-JSX excapes any values that are not written inside the application code. Before rendering anything, it will convert all data into a string. 
+JSX escapes any values that are not written inside the application code. Before rendering anything, it will convert all data into a string. 
 
 Example:
 ```
@@ -74,8 +74,10 @@ const App = () => {
 
 The browser will output `Hello, <img src onerror="alert(0)" />` as a string as opposed to adding the img tag in the DOM. If this was loaded directly into the dom, then the browser would execute the JS method: `alert(0)` which would then make the alert window pop up.
 
-#### 
+#### URL Sanitization
 
-### NextJS
+React santizes URLs that start with `javascript:` out of the box, which will prevent any javascrip URL injection.  
 
-## More Information
+React doesn't yet sanitize URLs starting with `data:` (which can be used to inject code into iframes), so this will need to be handled by the dev or another framework as not all browsers prevent this by default.
+
+
